@@ -50,29 +50,31 @@ export default function ListaTarefas() {
                 />
                 <button onClick={addTarefa}>Add tarefa</button>
             </div>
-            <ul>
-                {/*Criando a lista com as tarefas que forem sendo adiconandas
+            <div className='lista'>
+                <ul>
+                    {/*Criando a lista com as tarefas que forem sendo adiconandas
                 vamos usar o .map para mapear cada tarefa
                 usar o index para identificar a posição de cada tarefa adicionada
                  */}
-                {tarefaAtual.map((tarefas, index) => (
-                    <li key={index}>
-                        <span style={{ textDecoration: tarefas.completed ? 'line-through' : 'none' }}>
-                            {tarefas.text}
-                        </span>
-                        {!tarefas.completed && (
-                            <>
-                                <button onClick={() => concluirTarefa(index)}>Concluir</button>
-                            </>
-                        )}
-                        {tarefas && (
-                          <>
-                          <button onClick={() => ExcluirTarefa(index)}>X</button>
-                          </>  
-                        )}
-                    </li>
-                ))}
-            </ul>
+                    {tarefaAtual.map((tarefas, index) => (
+                        <li key={index}>
+                            <span className='nomeLista'  style={{ textDecoration: tarefas.completed ? 'line-through' : 'none' }}>
+                                {tarefas.text}
+                            </span>
+                            {!tarefas.completed && (
+                                <>
+                                    <button onClick={() => concluirTarefa(index)}>Concluir</button>
+                                </>
+                            )}
+                            {tarefas && (
+                                <>
+                                    <button className='b' onClick={() => ExcluirTarefa(index)}>X</button>
+                                </>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     )
 }
